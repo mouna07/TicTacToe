@@ -41,16 +41,41 @@ public class TicTacToeGame {
 
 	}
 
+	// displaying board and values at specific positions
 	public static void showBoard() {
 		System.out.println("Empty board looks like :");
 		System.out.println("");
-		System.out.println("   "+board[1]+"   " + "|" +"   "+board[2]+ "   " + "|" +"   "+board[3]+ "   ");
+		System.out.println("   " + board[1] + "   " + "|" + "   " + board[2] + "   " + "|" + "   " + board[3] + "   ");
 		System.out.println("  -------------------");
-		System.out.println("   "+board[4]+"   " + "|" +"   "+board[5]+ "   " + "|" +"   "+board[6]+ "   ");
+		System.out.println("   " + board[4] + "   " + "|" + "   " + board[5] + "   " + "|" + "   " + board[6] + "   ");
 		System.out.println("  -------------------");
-		System.out.println("   "+board[7]+"   " + "|" +"   "+board[8]+ "   " + "|" +"   "+board[9]+ "   ");
+		System.out.println("   " + board[7] + "   " + "|" + "   " + board[8] + "   " + "|" + "   " + board[9] + "   ");
+	}
+	
+	// taking position from player where he wants to put his input
+	public static void userMove()
+	{
+		System.out.println("Enter the empty position(between 1-9) where you wants to make the move ");
+		Scanner sc = new Scanner(System.in);
+		int position = sc.nextInt();
+		if(position>=1 && position <=9)
+		{
+		if(board[position]==' ')
+		{
+			board[position] = playerSymbol;
+			showBoard();
+		}
+		else
+		{
+			System.out.println("Invalid move, position is not empty");
+		}
+		}
+		else
+		{
+			System.out.println("You entered a invalid position");
 
-		
+		}
+	
 
 	}
 
@@ -60,5 +85,8 @@ public class TicTacToeGame {
 		board = creatingBoard();
 		allowPlayerToChoose();
 		showBoard();
+		userMove();
+		// userMove();
+
 	}
 }
