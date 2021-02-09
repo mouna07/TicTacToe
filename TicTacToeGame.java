@@ -74,21 +74,18 @@ public class TicTacToeGame {
 		System.out.println("Computer's turn");
 	}
 	public static void computerMove() {
-		System.out.println("Enter the empty position(between 1-9) where you wants to make the move ");
-		Scanner sc = new Scanner(System.in);
-		int position = sc.nextInt();
-		if (position >= 1 && position <= 9)
-		{
-			if (board[position] == ' ') {
-				System.out.println("position  : " + position + " is empty");
+		
+		int position =(int) Math.floor(Math.random() * 10) % 10;
+		
+		
+		while(board[position] != ' ')
+			{
+			
+				 position =(int) Math.floor(Math.random() * 10) % 10;
+          }
+              System.out.println("position  : " + position + " is empty");
 				board[position] = computerSymbol;
 				showBoard();
-			} else {
-				System.out.println("Invalid move, position is not empty");
-			}
-		} else {
-			System.out.println("You entered a invalid position");
-			}
 		turn = 0;
 		System.out.println("Player's turn");
 
@@ -138,7 +135,14 @@ public class TicTacToeGame {
 				computerMove();
 				symbol = computerSymbol;
 			}
+			
 			winnerFound = checkWinningCondition(symbol);
+			if(board[1]!=' '  &&  board[2]!=' ' && board[3]!=' ' && board[4]!=' ' && board[5]!=' '&& board[6]!=' '&&
+			    board[7]!=' '&& board[8]!=' '&& board[9]!=' ' && winnerFound !=true)
+			    {
+			        System.out.println("It is a tie , no one won");
+			        break;
+			    }
 		}
 		if(symbol==playerSymbol)
 		{
@@ -187,6 +191,7 @@ public class TicTacToeGame {
 		{
 			gotWinner =true;
 		}
+		
 		return gotWinner;
 	}
 	public static void main(String args[]) {
