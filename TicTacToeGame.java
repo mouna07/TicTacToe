@@ -53,6 +53,7 @@ public class TicTacToeGame {
 	}
 	
 	// taking position from player where he wants to put his input
+	//UC5 is also satisfied in this
 	public static void userMove()
 	{
 		System.out.println("Enter the empty position(between 1-9) where you wants to make the move ");
